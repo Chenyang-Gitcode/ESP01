@@ -1,0 +1,17 @@
+# 保存 excel 文件
+def to_excel(data_save):
+    data_save = pd.DataFrame(data_save)
+    writer = pd.ExcelWriter('data.xlsx')
+    #sheets是要写入的excel工作簿名称列表
+    data_save.to_excel(writer, sheet_name = 'page_1', float_format='%.5f')
+    # 保存writer中的数据至excel
+    # 如果省略该语句，则数据不会写入到上边创建的excel文件中
+    writer.save()
+    
+# data_predict = pd.DataFrame(predict) 
+# data_orange = pd.DataFrame(orange) 
+# # 将文件写入excel表格中
+# writer = pd.ExcelWriter('Random.xlsx')  #关键2，创建名称为hhh的excel表格
+# data_predict.to_excel(writer,'page_1',float_format='%.5f')  #关键3，float_format 控制精度，将data_df写到hhh表格的第一页中。若多个文件，可以在page_2中写入
+# data_orange.to_excel(writer,'page_2',float_format='%.5f')
+# writer.save()  #关键4
