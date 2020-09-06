@@ -1,0 +1,5 @@
+#导入工况数据
+velocity_mat = sio.loadmat('CYC_UDDS.mat') 
+Velocity = velocity_mat['cyc_mph'] #第一列时间，第二列速度 print(type(Velocity))---<class 'numpy.ndarray'>
+                                   # CYC_UDDS ,print(Velocity.shape)---(1370, 2)
+Velocity = Velocity[:,1]
